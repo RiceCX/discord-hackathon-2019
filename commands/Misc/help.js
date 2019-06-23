@@ -79,30 +79,3 @@ const showHelp = async (Bot, message) => {
     return string;
   }
 };
-// if (Bot.categoryArr.includes(cat)) {
-//   let cChooser = Bot.commands
-//     .filter(c => c.help.category == cat)
-//     .map(c => {
-//       return c;
-//     })
-//     .forEach(c => {
-//       let embed = new Discord.RichEmbed()
-//         .setAuthor(`Category: ${cat}`, message.author.avatarURL)
-//         .setColor(
-//           "#" +
-//             Math.random()
-//               .toString(16)
-//               .slice(2, 8)
-//               .toUpperCase()
-//         )
-//         .addField("Command Name", c.help.name)
-//         .addField("Description", c.help.description)
-//         .addField("Alias", c.help.alias)
-//         .addField("Category", c.help.category)
-//         .addField("Permission Needed", c.help.permission)
-//         .addField("Is Disabled?", c.settings.disabled)
-//         .setFooter("Automatically Generated.");
-//       message.author.send(embed);
-//       //    console.log(`${c.help.name}-${c.help.alias}`)
-//     });
-// }

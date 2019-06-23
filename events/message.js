@@ -3,7 +3,7 @@ module.exports = async (Bot, message) => {
 
   if (message.channel.type == "dm")
     return message.channel.send("You cannot use this Bot in DMs! 🙃");
-  const prefix = "show me"; // TDDO MAKE SERVER TO SERVFER CONFIG
+  const prefix = "h!"; // TDDO MAKE SERVER TO SERVFER CONFIG
   if (message.content.indexOf(prefix) !== 0) return;
   // Our standard argument/command name definition.
   const args = message.content
