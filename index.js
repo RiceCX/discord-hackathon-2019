@@ -11,6 +11,17 @@ const handleCommands = require("./utils/handleCommands");
 client.commands = new Enmap();
 client.aliases = new Enmap();
 client.categories = new Enmap();
+client.servercfg = new Enmap({
+  name: "Server configs",
+  fetchAll: false,
+  autoFetch: true
+}); // Persistant
+client.modules = new Enmap({
+  name: "Modules",
+  fetchAll: false,
+  autoFetch: true
+});
+
 // Event Loader
 fs.readdir("./events", (err, files) => {
   if (err) return console.error(err);

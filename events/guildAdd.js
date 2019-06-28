@@ -13,6 +13,6 @@ module.exports = async (client, guild) => {
   channel.send(
     `Thanks for inviting me into this server! I'm **${
       client.user.username
-    }**. \nYou can view my commands by doing \`show me help\`. Every command starts with \`show me\`.\nI try my best to increase the server's activity by providing **music**, **meme commands**, and many more. \nAll bot settings can be accessed by \`show me settings\` or online at: https:// \n**|** Check out my music commands with \`show me help\` `
+    }**. \nYou can view my commands by doing \`show me help\`. Every command starts with \`show me\`.\nI try my best to increase the server's activity by providing **music**, **meme commands**, and many more. \nAll bot settings can be accessed by \`show me settings\` or online at: https:// \n**|** Check out my music commands with \`show me help\`\n`
   );
 };

@@ -1,3 +1,4 @@
+const generateConfigs = require("../utils/generateConfigs");
 module.exports = async (Bot, message) => {
   if (message.author.bot) return;
 
@@ -10,7 +11,7 @@ module.exports = async (Bot, message) => {
     .slice(prefix.length)
     .trim()
     .split(/ +/g);
-
+  generateConfigs(Bot, message, message.author);
   const command = args.shift().toLowerCase();
 
   var cmd = Bot.commands.get(command) || Bot.aliases.get(command);
@@ -29,7 +30,7 @@ module.exports = async (Bot, message) => {
       });
     if (cmd.command.help.permission == "None") {
     } else if (cmd.command.help.permission == "OwnerBot") {
-      if (message.author.id != process.env.ownerBot)
+      if (message.author.id != process.env.ownerID)
         return message.channel
           .send(
             "Only the Bot Owner can use the command... Debug: Command exited code **1**"

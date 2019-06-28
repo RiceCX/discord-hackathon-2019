@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const moment = require("moment");
 exports.run = async (Bot, message, args) => {
   const bool = args[0];
   const secs = args[1];
@@ -9,7 +10,16 @@ exports.run = async (Bot, message, args) => {
       return message.channel.send("Enter valid time(in seconds)!");
     message.channel.setRateLimitPerUser(secs).then(e => {
       message.channel.send(
-        "This channel has been slowed down to:" + secs + "seconds per user."
+        `This channel has been slowed down to: ${moment()
+          .startOf("day")
+          .seconds(secs)
+          .format("H")}hrs:${moment()
+          .startOf("day")
+          .seconds(secs)
+          .format("m")}minutes:${moment()
+          .startOf("day")
+          .seconds(secs)
+          .format("s")}seconds per user. `
       );
     });
   } else {
@@ -21,8 +31,8 @@ exports.help = {
   name: "slow",
   category: "Administration",
   description: "Bans the user specified.",
-  usage: "ban [user]",
-  permission: "BAN_MEMBERS",
+  usage: "slow [on/off] [seconds]",
+  permission: "MANAGE_CHANNELS",
   alias: "None"
 };
 module.exports.settings = {

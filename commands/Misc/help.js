@@ -58,7 +58,7 @@ const showCommandHelp = async (Bot, message, args) => {
 
 const showHelp = async (Bot, message) => {
   let help =
-    "```Commands List``` \nUse `show me help [command_name]` for more information about that command.\n \n";
+    "```Commands List``` \nUse `show me help [command_name]` for more information about that command.\n \n**|**⚠ Some commands might not be seen due to your permissions.\n \n";
   let counter = 1;
   await Bot.categories.get("array").forEach(async e => {
     var a = help.concat(
@@ -73,8 +73,15 @@ const showHelp = async (Bot, message) => {
     Bot.commands
       .filter(c => c.category == cat)
       .map(c => {
-        var nString = string.concat(`\`${c.command.help.name}\` `);
-        string = nString;
+        if (
+          c.command.help.permission != "None" &&
+          message.member.hasPermission(c.command.help.permission) === false
+        ) {
+          return;
+        } else {
+          var nString = string.concat(`\`${c.command.help.name}\` `);
+          string = nString;
+        }
       });
     return string;
   }
