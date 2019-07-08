@@ -85,22 +85,6 @@ module.exports = {
   ITEM_NONE: {
     ITEM: () => fs.readFile("./Misc/Images/textures/none.png")
   },
-  ITEM_CAKE: {
-    RECIPE: ["X", "X", "X", "X", "X", "X", "X", "X", "X"],
-    META: {
-      0: this.ITEM_MILK,
-      1: this.ITEM_MILK,
-      2: this.ITEM_MILK,
-      3: this.ITEM_SUGAR,
-      4: this.ITEM_EGG,
-      5: this.ITEM_SUGAR,
-      6: this.ITEM_WHEAT,
-      7: this.ITEM_WHEAT,
-      8: this.ITEM_WHEAT
-    },
-    ITEM: () => fs.readFile("./Misc/Images/textures/cake.png"),
-    NAME: "CAKE"
-  },
   ITEM_MILK: {
     RECIPE: [],
     META: {},
@@ -134,5 +118,41 @@ module.exports = {
     META: {},
     ITEM: () => fs.readFile("./Misc/Images/textures/wheat.png"),
     NAME: "WHEAT"
+  },
+  ITEM_CAKE: {
+    RECIPE: ["X", "X", "X", "X", "X", "X", "X", "X", "X"],
+    META: {
+      0: this.ITEM_MILK,
+      1: this.ITEM_MILK,
+      2: this.ITEM_MILK,
+      3: this.ITEM_SUGAR,
+      4: this.ITEM_EGG,
+      5: this.ITEM_SUGAR,
+      6: this.ITEM_WHEAT,
+      7: this.ITEM_WHEAT,
+      8: this.ITEM_WHEAT
+    },
+    get METAA() {
+      return this.META;
+    },
+    ITEM: () => fs.readFile("./Misc/Images/textures/cake.png"),
+    NAME: "CAKE"
+  },
+  set cake(name) {
+    this.cake.recipe = this.RECIPE = [
+      this.ITEM_MILK.NAME,
+      this.ITEM_MILK.NAME,
+      this.ITEM_MILK.NAME,
+      this.ITEM_SUGAR.NAME,
+      this.ITEM_EGG.NAME,
+      this.ITEM_SUGAR.NAME,
+      this.ITEM_WHEAT.NAME,
+      this.ITEM_WHEAT.NAME,
+      this.ITEM_WHEAT.NAME
+    ];
+  },
+  cake: {},
+  get getCake() {
+    return this.cake;
   }
 };

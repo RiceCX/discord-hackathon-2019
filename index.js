@@ -21,7 +21,7 @@ client.modules = new Enmap({
   fetchAll: false,
   autoFetch: true
 });
-
+client.youtubeQueue = new Enmap();
 // Event Loader
 fs.readdir("./events", (err, files) => {
   if (err) return console.error(err);
